@@ -1,0 +1,15 @@
+services:
+  hytale:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: hytale-server
+    container_name: hytale-server
+    ports:
+      - "5520:5520/udp"
+    volumes:
+      - ./data/latest:/hytale
+    environment:
+      - JAVA_MEMORY=4G
+    stdin_open: true
+    tty: true
